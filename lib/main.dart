@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -36,6 +38,9 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       _counter++;
     });
+
+    print('_counter の値は ');
+    print(_counter);
   }
 
   @override
@@ -44,14 +49,24 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: const Text('アカウントメモリーズ'),
       ),
-      body: ListView(children: [
-        ListTile(leading: const Icon(Icons.vpn_key), title: Text(titleList[0])),
-        const Divider(thickness: 1),
-        ListTile(leading: const Icon(Icons.vpn_key), title: Text(titleList[1])),
-        const Divider(thickness: 1),
-        ListTile(leading: const Icon(Icons.vpn_key), title: Text(titleList[2])),
-        const Divider(thickness: 1),
-      ]),
+      body: ListView.builder(
+          itemCount: titleList.length,
+          itemBuilder: (BuildContext context, int i) {
+            return Column(
+              children: [
+                ListTile(
+                  title: Text(titleList[i]),
+                  subtitle: const Text('サブタイトル'),
+                  trailing: const Icon(Icons.account_balance),
+                  leading: const Icon(Icons.vpn_key),
+                  onTap: () {
+                    print('タップされました');
+                  },
+                ),
+                const Divider(),
+              ],
+            );
+          }),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
