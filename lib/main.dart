@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 
+import 'next_page.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -47,10 +49,13 @@ class _MyHomePageState extends State<MyHomePage> {
                 ListTile(
                   title: Text(titleList[i]),
                   subtitle: const Text('サブタイトル'),
-                  trailing: const Icon(Icons.account_balance),
                   leading: const Icon(Icons.vpn_key),
+                  trailing: const Icon(Icons.arrow_forward),
                   onTap: () {
-                    print('タップされました');
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const NextPage()));
                   },
                 ),
                 const Divider(),
