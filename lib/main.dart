@@ -45,8 +45,11 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: ListView(children: const [
         ListTile(leading: Icon(Icons.vpn_key), title: Text('Amazon')),
+        Divider(thickness: 1),
         ListTile(leading: Icon(Icons.vpn_key), title: Text('楽天')),
-        ListTile(leading: Icon(Icons.vpn_key), title: Text('Yahoo!'))
+        Divider(thickness: 1),
+        ListTile(leading: Icon(Icons.vpn_key), title: Text('Yahoo!')),
+        Divider(thickness: 1),
       ]),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
