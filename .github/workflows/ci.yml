@@ -1,0 +1,31 @@
+name: Account Memories
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  account_memories:
+    name: Account Memories CI
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        java-version: ['18.x', '17.x']
+        flutter-version: ['3.0.5']
+    steps:
+    - name: コードをチェックアウトする
+      uses: actions/checkout@v3
+    - name: Java をセットアップする
+      uses: actions/setup-java@v1
+      with:
+        java-version: ${{ matrix.java-version }}
+    - name: Flutter をセットアップする
+      uses: subosito/flutter-action@v1
+      with:
+        flutter-version: ${{ matrix.flutter-version }}
+    - name: Flutter の依存ライブラリをインストールする
+      run: flutter pub get
+    - name: Flutter の Lint を実行する
+      run: flutter analyze
+    - name: Flutter のテストを実行する
+      run: flutter test
