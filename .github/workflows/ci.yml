@@ -20,7 +20,7 @@ jobs:
       with:
         java-version: ${{ matrix.java-version }}
     - name: Flutter をセットアップする
-      uses: subosito/flutter-action@v1
+      uses: subosito/flutter-action@v2
       with:
         flutter-version: ${{ matrix.flutter-version }}
     - name: Flutter の依存ライブラリをインストールする
