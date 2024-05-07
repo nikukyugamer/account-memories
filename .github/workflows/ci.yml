@@ -10,8 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        java-version: ['21.x', '18.x', '17.x']
-        flutter-version: ['3.0.5']
+        java-version: ['21.x', '17.x']
     steps:
     - name: コードをチェックアウトする
       uses: actions/checkout@v4
@@ -19,6 +18,8 @@ jobs:
       uses: actions/setup-java@v4
       with:
         java-version: ${{ matrix.java-version }}
+        distribution: 'adopt'
+        cache: 'gradle'
     - name: fvm を準備する
       uses: kuhnroyal/flutter-fvm-config-action@v2
       id: fvm-config-action
