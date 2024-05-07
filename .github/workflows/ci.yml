@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        java-version: ['18.x', '17.x']
+        java-version: ['21.x', '18.x', '17.x']
         flutter-version: ['3.0.5']
     steps:
     - name: コードをチェックアウトする
