@@ -19,10 +19,14 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: ${{ matrix.java-version }}
+    - name: fvm を準備する
+      uses: kuhnroyal/flutter-fvm-config-action@v2
+      id: fvm-config-action
     - name: Flutter をセットアップする
       uses: subosito/flutter-action@v2
       with:
-        flutter-version: ${{ matrix.flutter-version }}
+        flutter-version: ${{ steps.fvm-config-action.outputs.FLUTTER_VERSION }}
+        channel: ${{ steps.fvm-config-action.outputs.FLUTTER_CHANNEL }}
     - name: Flutter の依存ライブラリをインストールする
       run: flutter pub get
     - name: Flutter の Lint を実行する
