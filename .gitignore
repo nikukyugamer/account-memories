@@ -21,3 +21,6 @@ doc/api/
 *.js.map
 
 tmp/
+
+# FVM Version Cache
+.fvm/
