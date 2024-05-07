@@ -27,6 +27,11 @@ jobs:
       with:
         flutter-version: ${{ steps.fvm-config-action.outputs.FLUTTER_VERSION }}
         channel: ${{ steps.fvm-config-action.outputs.FLUTTER_CHANNEL }}
+    - name: Java, Flutter & Dart のバージョンを確認する
+      run: |
+        java --version
+        flutter --version
+        dart --version
     - name: Flutter の依存ライブラリをインストールする
       run: flutter pub get
     - name: Flutter の Lint を実行する
