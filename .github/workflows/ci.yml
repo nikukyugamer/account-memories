@@ -13,7 +13,7 @@ jobs:
         java-version: ['21.x', '17.x']
     steps:
     - name: コードをチェックアウトする
-      uses: actions/checkout@v5
+      uses: actions/checkout@v6
     - name: Java をセットアップする
       uses: actions/setup-java@v5
       with:
